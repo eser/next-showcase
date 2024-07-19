@@ -14,6 +14,16 @@ export function Footer() {
                 />
                 Home
             </Link>
+            <Link href="/react-compiler/" className="flex items-center gap-2 hover:underline hover:underline-offset-4">
+                <Image
+                    aria-hidden
+                    src="/window.svg"
+                    alt="Window icon"
+                    width={16}
+                    height={16}
+                />
+                React Compiler
+            </Link>
             <Link href="/use/" className="flex items-center gap-2 hover:underline hover:underline-offset-4">
                 <Image
                     aria-hidden
