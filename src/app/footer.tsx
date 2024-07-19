@@ -46,6 +46,21 @@ export function Footer() {
             </Link>
             <a
                 className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+                href="https://github.com/eser/next-showcase"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Image
+                    aria-hidden
+                    src="/globe.svg"
+                    alt="Globe icon"
+                    width={16}
+                    height={16}
+                />
+                View Source →
+            </a>
+            <a
+                className="flex items-center gap-2 hover:underline hover:underline-offset-4"
                 href="https://eser.live"
                 target="_blank"
                 rel="noopener noreferrer"

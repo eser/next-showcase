@@ -1,4 +1,4 @@
-# Next 15 Showcase by eser.live
+# Next 15 Showcase
 
 ## Getting Started
 
