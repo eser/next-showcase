@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useOptimistic, useTransition } from "react";
+import { useOptimistic, useActionState } from "react";
 import { sendMessageAction } from "./action";
 import { type FormState } from "./types";
 
@@ -11,26 +11,25 @@ function formatDate(date: Date): string {
 }
 
 export default function Page() {
-    const [state, setState] = useState<FormState>([]);
-    const [isPending, startTransition] = useTransition();
+    const [state, action, isPending] = useActionState(
+        async (currentState: FormState, payload: FormData) => {
+            const message = await payload.get("message") as string;
+
+            addMessageOptimistic(message);
+            const newState = await sendMessageAction(currentState, payload);
+
+            return newState;
+        },
+        [],
+    );
+
     const [optimisticState, addMessageOptimistic] = useOptimistic<FormState, string>(
         state,
         (prevState, newMessage) => [...prevState, [new Date(), newMessage, true]],
     );
 
-    const formAction = (formData: FormData) => {
-        const message = formData.get("message") as string;
-
-        startTransition(async () => {
-            addMessageOptimistic(message);
-            const newState = await sendMessageAction(state, formData);
-
-            startTransition(() => setState(newState));
-        });
-    };
-
     return (
-        <form action={formAction} className="flex flex-col gap-5">
+        <form action={action} className="flex flex-col gap-5">
             <div>
                 {optimisticState.map((entry: [Date, string, boolean?], index: number) => (
                     <div key={index} className="text-gray-900 dark:text-gray-300 flex flex-row gap-3">
