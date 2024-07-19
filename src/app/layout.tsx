@@ -11,7 +11,7 @@ const roboto = Roboto({
   display: 'swap',
 })
 
-export const robotoMono = Roboto_Mono({
+const robotoMono = Roboto_Mono({
   weight: ['400', '700'],
   style: ['normal'],
   subsets: ['latin'],
