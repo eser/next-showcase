@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    experimental: {
+        reactCompiler: true,
+        ppr: true, // 'incremental',
+    },
+};
 
 export default nextConfig;
