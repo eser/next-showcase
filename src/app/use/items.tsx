@@ -1,5 +1,3 @@
-// "use client";
-
 import { use } from "react";
 import { setTimeout } from "timers/promises";
 
@@ -20,7 +18,7 @@ export function ItemCount(props: ItemCountProps) {
 
     return (
         <>
-            We have {items.length} {props.kind}
+            {items.length} {props.kind} loaded.
         </>
     );
 }

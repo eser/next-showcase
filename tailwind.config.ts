@@ -1,12 +1,20 @@
-import type { Config } from "tailwindcss";
+import { type Config } from "tailwindcss";
+import fluid, { extract, screens, fontSize } from "fluid-tailwind";
+import typography from "@tailwindcss/typography";
+import daisyui from "daisyui";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: {
+    files: [
+      "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    extract,
+  },
   theme: {
+    screens,
+    fontSize,
     extend: {
       colors: {},
       fontFamily: {
@@ -16,8 +24,10 @@ const config: Config = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    require("daisyui"),
+    typography,
+    fluid,
+    daisyui,
   ],
 };
+
 export default config;

@@ -10,16 +10,35 @@ function Skeleton() {
 export default function Page() {
   return (
     <>
-      <div>Loading stats...</div>
-      <ol className="font-mono text-sm text-center sm:text-left flex flex-col gap-3 w-full">
+      <ol className="font-mono ~text-base/xl text-center sm:text-left flex flex-col gap-3 w-full">
         <li>
           <Suspense fallback={<Skeleton />}>
-            <ItemCount kind="posts" delay={3500} />
+            <ItemCount kind="posts" delay={4500} />
           </Suspense>
         </li>
         <li>
           <Suspense fallback={<Skeleton />}>
-            <ItemCount kind="users" delay={2000} />
+            <ItemCount kind="comments" delay={3000} />
+          </Suspense>
+        </li>
+        <li>
+          <Suspense fallback={<Skeleton />}>
+            <ItemCount kind="albums" delay={1500} />
+          </Suspense>
+        </li>
+        <li>
+          <Suspense fallback={<Skeleton />}>
+            <ItemCount kind="photos" delay={2500} />
+          </Suspense>
+        </li>
+        <li>
+          <Suspense fallback={<Skeleton />}>
+            <ItemCount kind="todos" delay={1250} />
+          </Suspense>
+        </li>
+        <li>
+          <Suspense fallback={<Skeleton />}>
+            <ItemCount kind="users" delay={1750} />
           </Suspense>
         </li>
       </ol>

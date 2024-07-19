@@ -12,6 +12,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "babel-plugin-react-compiler": "0.0.0-experimental-696af53-20240625",
     "daisyui": "^4.12.10",
+    "fluid-tailwind": "^1.0.2",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522"

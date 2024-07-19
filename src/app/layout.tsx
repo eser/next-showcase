@@ -32,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${robotoMono.variable}`}>
-        <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-          <main className="row-start-2 min-w-[400px]">
-            {children}
+        <div className="font-sans flex flex-col min-h-screen">
+          <main className="flex-1 flex justify-center items-center p-5">
+            <div className="flex-1 ~text-sm/xl max-w-[clamp(320px,40vw,1200px)] mx-auto">
+              {children}
+            </div>
           </main>
           <Footer />
         </div>

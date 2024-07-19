@@ -1,8 +1,7 @@
 "use client";
 
-import { useOptimistic, useActionState } from "react";
+import { useActionState } from "react";
 import { sendMessageAction } from "./action";
-import { type FormState } from "./types";
 
 function formatDate(date: Date): string {
     const formatted = date.toISOString();
@@ -12,26 +11,14 @@ function formatDate(date: Date): string {
 
 export default function Page() {
     const [state, action, isPending] = useActionState(
-        async (currentState: FormState, payload: FormData) => {
-            const message = await payload.get("message") as string;
-
-            addMessageOptimistic(message);
-            const newState = await sendMessageAction(currentState, payload);
-
-            return newState;
-        },
+        sendMessageAction,
         [],
-    );
-
-    const [optimisticState, addMessageOptimistic] = useOptimistic<FormState, string>(
-        state,
-        (prevState, newMessage) => [...prevState, [new Date(), newMessage, true]],
     );
 
     return (
         <form action={action} className="flex flex-col gap-5">
             <div>
-                {optimisticState.map((entry: [Date, string, boolean?], index: number) => (
+                {state.map((entry: [Date, string, boolean?], index: number) => (
                     <div key={index} className="text-gray-900 dark:text-gray-300 flex flex-row items-center gap-3">
                         {/* time */}
                         <kbd className="kbd kbd-sm">{formatDate(entry[0])}</kbd>
