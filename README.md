@@ -1,5 +1,9 @@
 # Next 15 Showcase
 
+> **Warning**
+> Deprecated in favor of [deno-next-showcase](https://github.com/eser/deno-next-showcase).
+
+
 ## Getting Started
 
 First, run the development server:
